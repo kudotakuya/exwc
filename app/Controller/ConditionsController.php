@@ -16,8 +16,13 @@ class ConditionsController extends AppController {
     }
 
     public function badgame(){
-        $query = $this->Condition->find('all');
-        if($query )
+        $id = $this->request->date('id');
+
+        $query = $this->Condition->find('all',
+            array(
+                'fields' => array('Electricity.flag'),//取得したいフィールドの指定
+                'conditions' => array('Condition.id' => $id) //検索条件の配列);
+            )
         $this->autoRender = false;
 
         $this->response->charset('UTF-8');
