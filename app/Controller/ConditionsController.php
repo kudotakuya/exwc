@@ -25,4 +25,13 @@ class ConditionsController extends AppController {
         echo json_encode($query);
     }
 
+    public function face(){
+        $id = $this->request->data('id');
+        $face = $this->request->data('face');
+
+        $this->Condition->updateAll(
+        array ('face' => $face),
+        array ('id' => $id));
+    }
+
 }
