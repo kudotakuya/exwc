@@ -34,4 +34,22 @@ class ConditionsController extends AppController {
         array ('id' => $id));
     }
 
+    public function touch(){
+        $id = $this->request->data('id');
+        $touch = $this->request->data('touch');
+
+        $this->Condition->updateAll(
+        array ('touch' => $touch),
+        array ('id' => $id));
+    }
+
+    public function toe(){
+        $id = $this->request->data('id');
+        $toe = $this->request->data('toe');
+
+        $this->Condition->updateAll(
+        array ('toe' => $toe),
+        array ('id' => $id));
+    }
+
 }
