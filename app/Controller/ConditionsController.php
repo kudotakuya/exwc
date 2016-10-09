@@ -16,7 +16,7 @@ class ConditionsController extends AppController {
     }
 
     public function badgame(){
-        $id = $this->request->date('id');
+        $id = $this->request->data('id');
 
         $query = $this->Condition->find('all',
             array(
