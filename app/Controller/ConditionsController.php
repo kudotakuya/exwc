@@ -22,7 +22,7 @@ class ConditionsController extends AppController {
             array(
                 'fields' => array('Electricity.flag'),//取得したいフィールドの指定
                 'conditions' => array('Condition.id' => $id) //検索条件の配列);
-            )
+            ));
         $this->autoRender = false;
 
         $this->response->charset('UTF-8');
