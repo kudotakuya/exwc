@@ -16,6 +16,7 @@ class ConditionsController extends AppController {
     }
 
     public function badgame(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
         $id = $this->request->data('id');
 
         $query = $this->Condition->find('all',
@@ -31,6 +32,7 @@ class ConditionsController extends AppController {
     }
 
     public function face(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
         $id = $this->request->data('id');
         $face = $this->request->data('face');
 
@@ -40,6 +42,7 @@ class ConditionsController extends AppController {
     }
 
     public function touch(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
         $id = $this->request->data('id');
         $touch = $this->request->data('touch');
 
@@ -49,6 +52,7 @@ class ConditionsController extends AppController {
     }
 
     public function toe(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
         $id = $this->request->data('id');
         $toe = $this->request->data('toe');
 
