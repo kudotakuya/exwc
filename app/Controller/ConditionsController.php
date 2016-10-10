@@ -81,4 +81,20 @@ class ConditionsController extends AppController {
         array ('id' => $id));
     }
 
+	public function weight(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
+        $id = $this->request->data('id');
+
+        $query = $this->Condition->find('all',
+            array(
+                'fields' => array('Condition.bef_weight', 'Condition.aft_weight'),//取得したいフィールドの指定
+                'conditions' => array('Condition.id' => $id) //検索条件の配列);
+            ));
+        $this->autoRender = false;
+
+        $this->response->charset('UTF-8');
+        $this->response->type('json');
+        echo json_encode($query);
+    }
+
 }
