@@ -15,6 +15,29 @@ class ConditionsController extends AppController {
 
     }
 
+    public function update($id){
+
+        $query = $this->Condition->find('all',
+            array(
+                'conditions' => array('Condition.id' => $id) //検索条件の配列);
+            ));
+
+        $flagArray = $query[0]['Condition'];
+        
+        print_r($query);
+        if($flagArray['face'] == 1 || $flagArray['touch'] == 1 || $flagArray['toe'] == 1){
+            $this->Condition->updateAll(
+                array ('Electricity.flag' => 1),
+                array ('Electricity.condition_id' => $id));
+        }else{
+            $this->Condition->updateAll(
+                array ('Electricity.flag' => 0),
+                array ('Electricity.condition_id' => $id));
+        }
+        
+
+    }
+
     public function badgame(){
         $this->response->header('Access-Control-Allow-Origin', '*');
         $id = $this->request->data('id');
@@ -39,6 +62,8 @@ class ConditionsController extends AppController {
         $this->Condition->updateAll(
         array ('face' => $face),
         array ('id' => $id));
+
+        update($id);
     }
 
     public function touch(){
@@ -49,6 +74,8 @@ class ConditionsController extends AppController {
         $this->Condition->updateAll(
         array ('touch' => $touch),
         array ('id' => $id));
+
+        update($id);
     }
 
     public function toe(){
@@ -59,6 +86,8 @@ class ConditionsController extends AppController {
         $this->Condition->updateAll(
         array ('toe' => $toe),
         array ('id' => $id));
+
+        update($id);
     }
 
 }
