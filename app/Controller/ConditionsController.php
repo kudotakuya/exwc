@@ -61,4 +61,24 @@ class ConditionsController extends AppController {
         array ('id' => $id));
     }
 
+	public function bef_weight(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
+        $id = $this->request->data('id');
+        $bef_weight = $this->request->data('bef_weight');
+
+        $this->Condition->updateAll(
+        array ('bef_weight' => $bef_weight),
+        array ('id' => $id));
+    }
+
+	public function aft_weight(){
+        $this->response->header('Access-Control-Allow-Origin', '*');
+        $id = $this->request->data('id');
+        $aft_weight = $this->request->data('aft_weight');
+
+        $this->Condition->updateAll(
+        array ('aft_weight' => $aft_weight),
+        array ('id' => $id));
+    }
+
 }
