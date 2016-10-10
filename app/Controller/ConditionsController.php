@@ -106,7 +106,7 @@ class ConditionsController extends AppController {
         $aft_weight = $this->request->data('aft_weight');
 
         $this->Condition->updateAll(
-        array ('aft_weight' => $this->request->data('aft_weight')),
+        array ('aft_weight' => $id),
         array ('id' => $id));
     }
 
