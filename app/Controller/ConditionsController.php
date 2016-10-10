@@ -63,7 +63,7 @@ class ConditionsController extends AppController {
         array ('face' => $face),
         array ('id' => $id));
 
-        update($id);
+        $this->update($id);
     }
 
     public function touch(){
@@ -75,7 +75,7 @@ class ConditionsController extends AppController {
         array ('touch' => $touch),
         array ('id' => $id));
 
-        update($id);
+        $this->update($id);
     }
 
     public function toe(){
@@ -87,7 +87,7 @@ class ConditionsController extends AppController {
         array ('toe' => $toe),
         array ('id' => $id));
 
-        update($id);
+        $this->update($id);
     }
 
 }
